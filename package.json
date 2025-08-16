@@ -1,0 +1,20 @@
+{
+  "name": "langchaintest",
+  "version": "1.0.0",
+  "description": "ollama+langchain with chatgpt test repository",
+  "main": "main.js",
+  "scripts": {
+    "test": "node --test",
+    "start": "electron --no-sandbox ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+    "dependencies": {
+      "@langchain/community": "^0.3.30",
+      "@langchain/core": "^0.3.71",
+      "electron": "^28.2.0",
+      "langchain": "^0.3.30"
+    }
+  }
