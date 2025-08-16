@@ -30,6 +30,6 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
 
-ipcMain.handle('chat:send', async (event, conversation) => {
-  return await sendChat(conversation);
+ipcMain.handle('chat:send', async (event, conversation, model) => {
+  return await sendChat(conversation, model);
 });

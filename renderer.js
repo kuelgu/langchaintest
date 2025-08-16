@@ -1,6 +1,7 @@
 const messagesDiv = document.getElementById('messages');
 const promptInput = document.getElementById('prompt');
 const sendBtn = document.getElementById('send');
+const modelSelect = document.getElementById('model');
 
 let conversation = [];
 
@@ -20,7 +21,7 @@ async function send() {
   conversation.push({ role: 'user', content: text });
   addMessage('assistant', '...');
 
-  const reply = await window.api.sendMessage(conversation);
+  const reply = await window.api.sendMessage(conversation, modelSelect.value);
   conversation.push({ role: 'assistant', content: reply });
   messagesDiv.lastChild.textContent = reply;
 }

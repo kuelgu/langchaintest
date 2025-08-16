@@ -17,9 +17,13 @@ body { font-family: sans-serif; margin:0; padding:0; display:flex; flex-directio
 <body>
 <div id="messages"></div>
 <div id="input">
+  <select id="model">
+    <option value="llama2">llama2</option>
+    <option value="llama3" selected>llama3</option>
+  </select>
   <input id="prompt" placeholder="Send a message" />
   <button id="send">Send</button>
-</div>
+ </div>
 <script src="renderer.js"></script>
 </body>
 </html>

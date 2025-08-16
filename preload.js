@@ -1,5 +1,6 @@
 import { contextBridge, ipcRenderer } from 'electron';
 
 contextBridge.exposeInMainWorld('api', {
-  sendMessage: (conversation) => ipcRenderer.invoke('chat:send', conversation)
+  sendMessage: (conversation, model) =>
+    ipcRenderer.invoke('chat:send', conversation, model)
 });

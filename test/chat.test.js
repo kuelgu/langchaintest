@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { formatMessages, sendChat } from '../chat.js';
+import { formatMessages, sendChat, getChatModel } from '../chat.js';
 import { HumanMessage, AIMessage } from '@langchain/core/messages';
+import { ChatOllama } from '@langchain/community/chat_models/ollama';
 
 test('formatMessages converts roles to LangChain messages', () => {
   const conversation = [
@@ -24,4 +25,9 @@ test('sendChat invokes provided model and returns its content', async () => {
   };
   const response = await sendChat([{ role: 'user', content: 'Hello' }], mockModel);
   assert.equal(response, 'mock response');
+});
+
+test('getChatModel creates a ChatOllama for the requested model name', () => {
+  const model = getChatModel('llama3');
+  assert.ok(model instanceof ChatOllama);
 });
